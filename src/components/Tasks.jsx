@@ -1,6 +1,6 @@
 import { Task } from './Task'
 
-export function Tasks({ tasks, deleteTask }) {
+export function Tasks({ tasks, deleteTask, doneTask }) {
   return (
     <ul className='tasks'>
       {tasks.map((task) => (
@@ -10,6 +10,7 @@ export function Tasks({ tasks, deleteTask }) {
           text={task.text}
           done={task.done}
           deleteTask={deleteTask}
+          doneTask={doneTask}
         />
       ))}
     </ul>

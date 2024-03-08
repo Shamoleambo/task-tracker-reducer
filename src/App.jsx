@@ -17,10 +17,18 @@ function App() {
     setTasks((prevState) => prevState.filter((task) => task.id !== id))
   }
 
+  const doneTask = (id) => {
+    setTasks((prevState) =>
+      prevState.map((task) =>
+        task.id === id ? { ...task, done: !task.done } : task
+      )
+    )
+  }
+
   return (
     <div className='container'>
       <AddTask addTask={addTask} />
-      <Tasks tasks={tasks} deleteTask={deleteTask} />
+      <Tasks tasks={tasks} deleteTask={deleteTask} doneTask={doneTask} />
     </div>
   )
 }
