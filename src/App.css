@@ -8,3 +8,17 @@
   justify-content: center;
   align-items: center;
 }
+
+.tasks {
+  width: 100%;
+}
+
+.singleTask {
+  margin: 8px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.singleTask .taskInfo {
+  display: flex;
+}
