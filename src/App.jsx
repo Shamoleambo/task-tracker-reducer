@@ -13,10 +13,14 @@ function App() {
     setTasks((prevState) => [...prevState, { id, text, done: false }])
   }
 
+  const deleteTask = (id) => {
+    setTasks((prevState) => prevState.filter((task) => task.id !== id))
+  }
+
   return (
     <div className='container'>
       <AddTask addTask={addTask} />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} deleteTask={deleteTask} />
     </div>
   )
 }
