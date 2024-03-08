@@ -1,13 +1,10 @@
+import { Task } from './Task'
+
 export function Tasks({ tasks }) {
   return (
     <ul className='tasks'>
       {tasks.map((task) => (
-        <li key={task.id}>
-          <input type='checkbox' name='done' />
-          <h2>{task.text}</h2>
-          <button>Edit</button>
-          <button>Delete</button>
-        </li>
+        <Task key={task.id} text={task.text} done={task.done} />
       ))}
     </ul>
   )
