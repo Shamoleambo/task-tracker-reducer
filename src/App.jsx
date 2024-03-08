@@ -1,23 +1,11 @@
 import { useReducer } from 'react'
 import { AddTask } from './components/AddTask'
 import { Tasks } from './components/Tasks'
+import { taskReducer } from './reducer'
 import './App.css'
 
-const initialTasks = [{ id: 1, text: 'Go somewhere', done: false }]
-
 function App() {
-  const taskReducer = (tasks, action) => {
-    if (action.type === 'added')
-      return [...tasks, { id: action.id, text: action.text, done: false }]
-    else if (action.type === 'deleted')
-      return tasks.filter((task) => task.id !== action.id)
-    else if (action.type === 'done')
-      return tasks.map((task) =>
-        task.id === action.id ? { ...task, done: !task.done } : task
-      )
-  }
-
-  const [tasks, dispatch] = useReducer(taskReducer, initialTasks)
+  const [tasks, dispatch] = useReducer(taskReducer, [])
 
   const addTask = (text) => {
     const id = Math.floor(Math.random() * 10000) + 1
